@@ -28,6 +28,11 @@ class CreatePacientesTable extends Migration
             $table->integer('cond_alta_dot')->nullable();
             $table->timestamps();
             $table->softDeletes();
+            $table->string('direccion')->nullable();
+            $table->string('familiar_responsable')->nullable();
+            $table->string('telefono')->nullable();
+            $table->string('telefono2')->nullable();
+            $table->unsignedBigInteger('prevision_id')->nullable()->index('fk_pacientes_previsiones1');
         });
     }
 

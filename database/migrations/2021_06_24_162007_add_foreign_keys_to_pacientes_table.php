@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddFieldsToPacientesTable extends Migration
+class AddForeignKeysToPacientesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,14 +14,7 @@ class AddFieldsToPacientesTable extends Migration
     public function up()
     {
         Schema::table('pacientes', function (Blueprint $table) {
-            $table->string('direccion')->nullable();
-            $table->string('familiar_responsable')->nullable();
-            $table->string('telefono')->nullable();
-            $table->string('telefono2')->nullable();
-            $table->unsignedBigInteger('prevision_id')->nullable();
-
-            $table->foreign('prevision_id', 'fk_pacientes_previsiones1')->references('id')->on('pacientes_previsiones');
-
+            $table->foreign('prevision_id', 'fk_pacientes_previsiones1')->references('id')->on('pacientes_previsiones')->onUpdate('RESTRICT')->onDelete('RESTRICT');
         });
     }
 
@@ -33,7 +26,7 @@ class AddFieldsToPacientesTable extends Migration
     public function down()
     {
         Schema::table('pacientes', function (Blueprint $table) {
-            //
+            $table->dropForeign('fk_pacientes_previsiones1');
         });
     }
 }
