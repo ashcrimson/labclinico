@@ -146,6 +146,7 @@ class RemaController extends AppBaseController
         /** @var Rema $rema */
         $rema = Rema::find($id);
 
+        $rema = $this->addAttributosRema($rema);
 
         if (empty($rema)) {
             Flash::error('Rema not found');
@@ -296,6 +297,38 @@ class RemaController extends AppBaseController
                 'estado_id' => RemaEstado::TEMPORAL,
             ]);
         }
+
+        return $rema;
+    }
+
+    public function addAttributosRema(Rema $rema)
+    {
+
+
+
+        $rema->setAttribute("run" ,$rema->paciente->run);
+        $rema->setAttribute("dv_run" ,$rema->paciente->dv_run);
+        $rema->setAttribute("apellido_paterno" ,$rema->paciente->apellido_paterno);
+        $rema->setAttribute("apellido_materno" ,$rema->paciente->apellido_materno);
+        $rema->setAttribute("primer_nombre" ,$rema->paciente->primer_nombre);
+        $rema->setAttribute("segundo_nombre" ,$rema->paciente->segundo_nombre);
+        $rema->setAttribute("fecha_nac" ,Carbon::parse($rema->paciente->fecha_nac)->format('Y-m-d'));
+        $rema->setAttribute("sexo" ,$rema->paciente->sexo == 'M' ? 1 : 0);
+
+        $rema->setAttribute("direccion" ,$rema->paciente->direccion);
+        $rema->setAttribute("familiar_responsable" ,$rema->paciente->familiar_responsable);
+        $rema->setAttribute("telefono" ,$rema->paciente->telefono);
+        $rema->setAttribute("telefono2" ,$rema->paciente->telefono2);
+        $rema->setAttribute("prevision_id" ,$rema->paciente->prevision_id);
+//        $rema->setAttribute("sigla_grado" ,$rema->paciente->sigla_grado);
+//        $rema->setAttribute("unid_rep_dot" ,$rema->paciente->unid_rep_dot);
+//        $rema->setAttribute("cond_alta_dot" ,$rema->paciente->cond_alta_dot);
+
+
+
+        $rema->setAttribute("hora_de_llamada" ,Carbon::parse($rema->hora_de_llamada)->format("H:i"));
+        $rema->setAttribute("hora_de_salida" ,Carbon::parse($rema->hora_de_salida)->format("H:i"));
+        $rema->setAttribute("hora_de_llegada" ,Carbon::parse($rema->hora_de_llegada)->format("H:i"));
 
         return $rema;
     }

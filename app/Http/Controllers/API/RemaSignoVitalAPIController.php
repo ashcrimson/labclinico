@@ -35,6 +35,10 @@ class RemaSignoVitalAPIController extends AppBaseController
             $query->limit($request->get('limit'));
         }
 
+        if ($request->rema_id){
+            $query->where('rema_id',$request->rema_id);
+        }
+
         $remaSignoVitals = $query->get();
 
         return $this->sendResponse(RemaSignoVitalResource::collection($remaSignoVitals), 'Rema Signo Vitals retrieved successfully');

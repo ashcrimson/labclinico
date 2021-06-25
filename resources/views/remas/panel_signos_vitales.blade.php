@@ -206,7 +206,9 @@
 
                     try{
 
-                        var url = "{{route('api.rema_signo_vitals.index')}}";
+                        var url = "{{route('api.rema_signo_vitals.index')}}?rema_id="+this.editedItem.rema_id;
+
+                        console.log(url);
 
                         const res = await axios.get(url);
 

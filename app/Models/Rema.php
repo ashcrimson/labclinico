@@ -279,4 +279,9 @@ class Rema extends Model
     {
         return $this->hasMany(\App\Models\RemaVentilacioneMecanica::class, 'rema_id');
     }
+
+    public function esTemporal()
+    {
+        return $this->estado_id==RemaEstado::TEMPORAL;
+    }
 }
