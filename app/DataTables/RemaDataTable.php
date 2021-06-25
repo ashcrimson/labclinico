@@ -37,7 +37,7 @@ class RemaDataTable extends DataTable
      */
     public function query(Rema $model)
     {
-        return $model->newQuery()->with(['paciente','user','estado','atencion']);
+        return $model->newQuery()->with(['paciente','user','estado']);
     }
 
     /**
@@ -90,9 +90,9 @@ class RemaDataTable extends DataTable
             'hora_de_llamada',
             'hora_de_salida',
             'hora_de_llegada',
-            'atencion.motivo_consulta',
-            'clasificacion_triaje' => ['name' => 'atencion.clasificacion_triaje','data' => 'atencion.clasificacion_triaje'],
-            
+            'motivo_consulta',
+            'clasificacion_triaje' ,
+
             'estado' => ['name' => 'estado.nombre','data' => 'estado.nombre'],
             'user'=> ['name' => 'user.name','data' => 'user.name'],
         ];

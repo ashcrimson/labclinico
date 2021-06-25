@@ -47,7 +47,8 @@ class RemaController extends AppBaseController
     {
         $rema = $this->getRemaTemporal();
 
-        return view('remas.create',compact('rema'));
+        return redirect(route('remas.edit',$rema->id));
+
     }
 
     /**
@@ -107,7 +108,6 @@ class RemaController extends AppBaseController
             'rema_id' => $rema->id,
         ]);
 
-        $atencion = $this->creaAtencion($request);
 
 //        dd(DB::getQueryLog());
 
@@ -146,8 +146,6 @@ class RemaController extends AppBaseController
         /** @var Rema $rema */
         $rema = Rema::find($id);
 
-        $rema = $this->addAttributosRema($rema);
-
 
         if (empty($rema)) {
             Flash::error('Rema not found');
@@ -169,8 +167,11 @@ class RemaController extends AppBaseController
      */
     public function update($id, UpdateRemaRequest $request)
     {
+
         /** @var Rema $rema */
         $rema = Rema::find($id);
+
+
 
         if (empty($rema)) {
             Flash::error('Rema not found');
@@ -199,6 +200,8 @@ class RemaController extends AppBaseController
 
     public function procesaUpdate(Request $request,Rema $rema)
     {
+
+
         //        DB::enableQueryLog();
 
         /**
@@ -218,11 +221,6 @@ class RemaController extends AppBaseController
         /** @var Rema $rema */
         $rema->fill($request->all());
         $rema->save();
-
-        $atencion = $rema->atencion;
-
-        $atencion->fill($request->all());
-        $atencion->save();
 
         return $rema;
 
@@ -286,79 +284,7 @@ class RemaController extends AppBaseController
         return $paciente;
     }
 
-    public function creaAtencion(Request $request)
-    {
 
-        list($presionAsistolica,$presionSistolica) = explode("/",$request->presion_arterial);
-
-        /**
-         * @var PacienteAtencion $atencion
-         */
-        $atencion = PacienteAtencion::create([
-            'paciente_id' => $request->paciente_id,
-            'rema_id' => $request->rema_id,
-            'motivo_consulta' => $request->motivo_consulta,
-            'clasificacion_triaje' => $request->clasificacion_triaje,
-            'presion_arterial' => $request->presion_arterial,
-            'presion_arterial_pa' => $presionAsistolica,
-            'presion_arterial_ps' => $presionSistolica,
-            'frecuencia_cardiaca' => $request->frecuencia_cardiaca,
-            'frecuencia_respiratoria' => $request->frecuencia_respiratoria,
-            'temperatura' => $request->temperatura,
-            'saturacion_oxigeno' => $request->saturacion_oxigeno,
-            'atencion_enfermeria' => $request->atencion_enfermeria,
-            'antecedentes_morbidos' => $request->antecedentes_morbidos,
-            'alergias' => $request->alergias,
-            'medicamentos_habituales' => $request->medicamentos_habituales
-        ]);
-
-
-        return $atencion;
-    }
-
-    public function addAttributosRema(Rema $rema)
-    {
-
-
-
-        $rema->setAttribute("run" ,$rema->paciente->run);
-        $rema->setAttribute("dv_run" ,$rema->paciente->dv_run);
-        $rema->setAttribute("apellido_paterno" ,$rema->paciente->apellido_paterno);
-        $rema->setAttribute("apellido_materno" ,$rema->paciente->apellido_materno);
-        $rema->setAttribute("primer_nombre" ,$rema->paciente->primer_nombre);
-        $rema->setAttribute("segundo_nombre" ,$rema->paciente->segundo_nombre);
-        $rema->setAttribute("fecha_nac" ,Carbon::parse($rema->paciente->fecha_nac)->format('Y-m-d'));
-        $rema->setAttribute("sexo" ,$rema->paciente->sexo == 'M' ? 1 : 0);
-
-        $rema->setAttribute("direccion" ,$rema->paciente->direccion);
-        $rema->setAttribute("familiar_responsable" ,$rema->paciente->familiar_responsable);
-        $rema->setAttribute("telefono" ,$rema->paciente->telefono);
-        $rema->setAttribute("telefono2" ,$rema->paciente->telefono2);
-        $rema->setAttribute("prevision_id" ,$rema->paciente->prevision_id);
-//        $rema->setAttribute("sigla_grado" ,$rema->paciente->sigla_grado);
-//        $rema->setAttribute("unid_rep_dot" ,$rema->paciente->unid_rep_dot);
-//        $rema->setAttribute("cond_alta_dot" ,$rema->paciente->cond_alta_dot);
-
-
-
-        $rema->setAttribute("motivo_consulta" ,$rema->atencion->motivo_consulta);
-        $rema->setAttribute("clasificacion_triaje" ,$rema->atencion->clasificacion_triaje);
-        $rema->setAttribute("presion_arterial" ,$rema->atencion->presion_arterial);
-        $rema->setAttribute("frecuencia_cardiaca" ,$rema->atencion->frecuencia_cardiaca);
-        $rema->setAttribute("frecuencia_respiratoria" ,$rema->atencion->frecuencia_respiratoria);
-        $rema->setAttribute("temperatura" ,$rema->atencion->temperatura);
-        $rema->setAttribute("saturacion_oxigeno" ,$rema->atencion->saturacion_oxigeno);
-        $rema->setAttribute("atencion_enfermeria" ,$rema->atencion->atencion_enfermeria);
-        $rema->setAttribute("antecedentes_morbidos" ,$rema->atencion->antecedentes_morbidos);
-        $rema->setAttribute("alergias" ,$rema->atencion->alergias);
-        $rema->setAttribute("medicamentos_habituales" ,$rema->atencion->medicamentos_habituales);
-
-        $rema->setAttribute("hora_de_llamada" ,Carbon::parse($rema->hora_de_llamada)->format("H:i"));
-        $rema->setAttribute("hora_de_salida" ,Carbon::parse($rema->hora_de_salida)->format("H:i"));
-        $rema->setAttribute("hora_de_llegada" ,Carbon::parse($rema->hora_de_llegada)->format("H:i"));
-
-        return $rema;
-    }
 
     public function getRemaTemporal()
     {
