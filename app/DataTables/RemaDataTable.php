@@ -3,6 +3,8 @@
 namespace App\DataTables;
 
 use App\Models\Rema;
+use App\Models\RemaEstado;
+use Carbon\Carbon;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
@@ -25,6 +27,14 @@ class RemaDataTable extends DataTable
             return $rema->paciente->nombre_completo;
         })->editColumn('fecha_ingreso',function (Rema $rema){
             return $rema->created_at->format('d/m/Y');
+        })->editColumn('paciente.fecha_nac',function (Rema $rema){
+            return Carbon::parse($rema->paciente->fecha_nac)->format('d/m/Y');
+        })->editColumn('hora_de_llamada',function (Rema $rema){
+            return Carbon::parse($rema->hora_de_llamada)->format('g:i A');
+        })->editColumn('hora_de_salida',function (Rema $rema){
+            return Carbon::parse($rema->hora_de_salida)->format('g:i A');
+        })->editColumn('hora_de_llegada',function (Rema $rema){
+            return Carbon::parse($rema->hora_de_llegada)->format('g:i A');
         });
 
     }
@@ -37,7 +47,7 @@ class RemaDataTable extends DataTable
      */
     public function query(Rema $model)
     {
-        return $model->newQuery()->with(['paciente','user','estado']);
+        return $model->newQuery()->where('estado_id','!=',RemaEstado::TEMPORAL)->with(['paciente','user','estado']);
     }
 
     /**
