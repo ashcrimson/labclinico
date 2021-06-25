@@ -53,7 +53,7 @@ $factory->define(Rema::class, function (Faker $faker) {
         'rcr' => $this->faker->word,
         'sondeo_vesical' => $this->faker->word,
         'otros' => $this->faker->word,
-        'ventilacion_mecanica_hora_recepcion' => $this->faker->date('Y-m-d H:i:s'),
+        'ventilacion_hora_recepcion' => $this->faker->date('Y-m-d H:i:s'),
         'fallecimiento_hora' => $this->faker->date('Y-m-d H:i:s'),
         'created_at' => $this->faker->date('Y-m-d H:i:s'),
         'updated_at' => $this->faker->date('Y-m-d H:i:s'),

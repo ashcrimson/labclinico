@@ -58,7 +58,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $rcr
  * @property string $sondeo_vesical
  * @property string $otros
- * @property string|\Carbon\Carbon $ventilacion_mecanica_hora_recepcion
+ * @property string|\Carbon\Carbon $ventilacion_hora_recepcion
  * @property string|\Carbon\Carbon $fallecimiento_hora
  */
 class Rema extends Model
@@ -121,7 +121,7 @@ class Rema extends Model
         'rcr',
         'sondeo_vesical',
         'otros',
-        'ventilacion_mecanica_hora_recepcion',
+        'ventilacion_hora_recepcion',
         'fallecimiento_hora'
     ];
 
@@ -236,7 +236,7 @@ class Rema extends Model
         'rcr' => 'nullable|string|max:45',
         'sondeo_vesical' => 'nullable|string|max:45',
         'otros' => 'nullable|string|max:45',
-        'ventilacion_mecanica_hora_recepcion' => 'nullable',
+        'ventilacion_hora_recepcion' => 'nullable',
         'fallecimiento_hora' => 'nullable',
     ];
 

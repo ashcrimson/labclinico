@@ -345,13 +345,13 @@
 
                     <!-- Ventilacion Mecanica Hora Recepcion Field -->
                     <div class="form-group col-sm-6">
-                        {!! Form::label('ventilacion_mecanica_hora_recepcion', 'Ventilacion Mecanica Hora Recepcion:') !!}
-                        {!! Form::date('ventilacion_mecanica_hora_recepcion', null, ['class' => 'form-control','id'=>'ventilacion_mecanica_hora_recepcion']) !!}
+                        {!! Form::label('ventilacion_hora_recepcion', 'Ventilacion Mecanica Hora Recepcion:') !!}
+                        {!! Form::date('ventilacion_hora_recepcion', null, ['class' => 'form-control','id'=>'ventilacion_hora_recepcion']) !!}
                     </div>
 
                     @section('scripts')
                         <script type="text/javascript">
-                            $('#ventilacion_mecanica_hora_recepcion').datetimepicker({
+                            $('#ventilacion_hora_recepcion').datetimepicker({
                                 format: 'YYYY-MM-DD HH:mm:ss',
                                 useCurrent: false
                             })
