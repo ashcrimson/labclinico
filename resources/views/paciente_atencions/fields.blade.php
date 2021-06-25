@@ -1,87 +1,110 @@
-<!-- Motivo Consulta Field -->
-<div class="form-group col-sm-12 col-lg-12">
-    {!! Form::label('motivo_consulta', 'Motivo Consulta:') !!}
-    {!! Form::textarea('motivo_consulta', null, ['class' => 'form-control','rows' => 2]) !!}
-</div>
+<!-- Modal form create models -->
+<div class="modal fade" id="modal-form-models">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="" method="post" role="form" id="form-modal-models">
 
-<!-- Clasificacion Triaje Field -->
-<div class="form-group col-sm-4">
-    {!! Form::label('clasificacion_triaje','Clasificacion Triage:') !!}
-    {!!
-        Form::select(
-            'clasificacion_triaje',
-            ['' => 'Seleccione una..','SC' => 'Sin Clasificacion','S1'=> 'S1','S2'=>'S2','S3'=>'S3','S4'=>'S4','S5'=>'S5']
-            , null
-            , ['id'=>'clasificacion_triaje','class' => 'form-control','style'=>'width: 100%']
-        )
-    !!}
-</div>
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        Nuevo Model
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-row">
+                        @include('models.fields')
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="reset" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" id="btnSubmitFormModels" data-loading-text="Guardando..." class="btn btn-primary" autocomplete="off">
+                        Guardar
+                    </button>
+                </div>
 
-<!-- Presion Arterial Field -->
-<div class="form-group col-sm-4">
-    {!! Form::label('presion_arterial', 'Presión Arterial:') !!}
-    {!! Form::text('presion_arterial', null, [
-            'id' => 'presion_arterial',
-            'class' => 'form-control',
-            'maxlength' => 255,
-            "data-inputmask"=>'"mask": "999/99"', "data-mask"
-         ]) !!}
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
 </div>
-
-<!-- Frecuencia Cardiaca Field -->
-<div class="form-group col-sm-4">
-    {!! Form::label('frecuencia_cardiaca', 'Frecuencia Cardiaca:') !!}
-    {!! Form::number('frecuencia_cardiaca', null, ['class' => 'form-control','maxlength' => 255]) !!}
-</div>
-
-<!-- Frecuencia Respiratoria Field -->
-<div class="form-group col-sm-4">
-    {!! Form::label('frecuencia_respiratoria', 'Frecuencia Respiratoria:') !!}
-    {!! Form::number('frecuencia_respiratoria', null, ['class' => 'form-control','maxlength' => 255]) !!}
-</div>
-
-<!-- Temperatura Field -->
-<div class="form-group col-sm-4">
-    {!! Form::label('temperatura', 'Temperatura:') !!}
-    {!! Form::number('temperatura', null, ['class' => 'form-control','step="any"','min="0"','max="50"']) !!}
-</div>
-
-<!-- Saturacion Oxigeno Field -->
-<div class="form-group col-sm-4">
-    {!! Form::label('saturacion_oxigeno', 'Saturación Oxígeno:') !!}
-    {!! Form::number('saturacion_oxigeno', null, ['class' => 'form-control']) !!}
-</div>
-
-<!-- Atencion Enfermeria Field -->
-<div class="form-group col-sm-12 col-lg-12">
-    {!! Form::label('atencion_enfermeria', 'Atención Enfermería:') !!}
-    {!! Form::textarea('atencion_enfermeria', null, ['class' => 'form-control','rows' => 2]) !!}
-</div>
-
-<!-- Antecedentes Morbidos Field -->
-<div class="form-group col-sm-12 col-lg-12">
-    {!! Form::label('antecedentes_morbidos', 'Antecedentes Mórbidos:') !!}
-    {!! Form::textarea('antecedentes_morbidos', null, ['class' => 'form-control','rows' => 2]) !!}
-</div>
-
-<!-- Alergias Field -->
-<div class="form-group col-sm-12 col-lg-12">
-    {!! Form::label('alergias', 'Alergias:') !!}
-    {!! Form::textarea('alergias', null, ['class' => 'form-control','rows' => 2]) !!}
-</div>
-
-<!-- Medicamentos Habituales Field -->
-<div class="form-group col-sm-12 col-lg-12">
-    {!! Form::label('medicamentos_habituales', 'Medicamentos Habituales:') !!}
-    {!! Form::textarea('medicamentos_habituales', null, ['class' => 'form-control','rows' => 2]) !!}
-</div>
+<!-- /. Modal form create models -->
 
 @push('scripts')
+<!--    Scripts modal form create models
+------------------------------------------------->
 <script>
-    $(function () {
+    var vmModel = new Vue({
+            el: '#models',
+            created: function() {
+                this.getModels();
+            },
+            data: {
+                models: [],
+                newModel: {
+                    'nombre': ''
+                },
+                modelEdit: {},
+                modelElimina: {},
+                loading: false
+            },
+            methods: {
+                getModels: function() {
+                    var url = "{{route('api.models.index')}}";
+                    axios.get(url).then(response => {
+                        this.models = response.data.data
+                    });
+                },
+                createModel: function() {
+                    this.loading= true;
+                    var url = "{{route('api.models.store')}}";
 
-        $('[data-mask]').inputmask()
+                    axios.post(url, this.newModel ).then(response => {
+                        this.getModels();
 
-    })
+                        this.newModel.nombre = '';
+                        $('#modalCreateModel').modal('hide');
+                        toastr.success(response.data.message); //mensaje
+                        this.loading= false;
+                    }).catch(error => {
+                        toastr.error(error.response.data.message);
+                        this.loading= false;
+                    });
+                },
+                editModel: function(model) {
+                    this.modelEdit = model
+                    $('#modalEditModel').modal('show');
+                },
+                updateModel: function(id) {
+                    this.loading= true;
+
+                    var url = "{{url('api/models')}}" + "/" + id;
+
+                    axios.put(url, this.model).then(response => {
+                        this.getModels();
+                        $('#modalEditModel').modal('hide');
+                        toastr.success(response.data.message);
+                        this.loading= false;
+                    }).catch(error => {
+                        toastr.error(error.response.data.message);
+                        this.loading= false;
+                    });
+                },
+                confirmDelete: function(model) {
+                    this.modelElimina = model;
+                    $('#modalDeleteModel').modal('show');
+                },
+                deleteModel: function(model) {
+                    var url = "{{url('api/models')}}" + "/" + model.id;
+
+                    axios.delete(url).then(response => {
+                        this.getModels();
+                        $('#modalDeleteModel').modal('hide');
+                        toastr.success(response.data.message);
+                    }).catch(error => {
+                        toastr.error(error.response.data.message);
+                        this.loading= false;
+                    });
+                }
+            }
+        });
 </script>
 @endpush

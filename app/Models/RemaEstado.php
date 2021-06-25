@@ -23,6 +23,8 @@ class RemaEstado extends Model
     const UPDATED_AT = 'updated_at';
 
     const CREADA = 1;
+    const TEMPORAL = 2;
+    const ANULADA = 3;
 
 
     protected $dates = ['deleted_at'];

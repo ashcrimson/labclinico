@@ -15,15 +15,15 @@ class CreateRemasTable extends Migration
     {
         Schema::create('remas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('paciente_id')->index('fk_remas_pacientes1');
+            $table->unsignedBigInteger('paciente_id')->nullable()->index('fk_remas_pacientes1');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('estado_id')->index('fk_remas_estados1');
             $table->string('numero_unidad')->nullable();
             $table->string('nombres_conductor')->nullable();
             $table->string('apellidos_conductor')->nullable();
-            $table->timestamp('hora_de_llamada');
-            $table->timestamp('hora_de_salida');
-            $table->timestamp('hora_de_llegada');
+            $table->timestamp('hora_de_llamada')->nullable();
+            $table->timestamp('hora_de_salida')->nullable();
+            $table->timestamp('hora_de_llegada')->nullable();
             $table->string('clasificacion_triaje', 45)->nullable();
             $table->text('motivo_consulta')->nullable();
             $table->text('evaluacion_primaria_a')->nullable();

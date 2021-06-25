@@ -21,6 +21,8 @@ class RemasEstadosTableSeeder extends Seeder
         \DB::table('remas_estados')->delete();
 
         RemaEstado::factory()->create(['nombre' => 'CREADA']);
+        RemaEstado::factory()->create(['nombre' => 'TEMPORAL']);
+        RemaEstado::factory()->create(['nombre' => 'ANULADA']);
 
 //        \DB::statement('ALTER TABLE remas ENABLE CONSTRAINT fk_remas_estados1');
 

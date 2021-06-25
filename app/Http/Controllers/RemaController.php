@@ -45,7 +45,9 @@ class RemaController extends AppBaseController
      */
     public function create()
     {
-        return view('remas.create');
+        $rema = $this->getRemaTemporal();
+
+        return view('remas.create',compact('rema'));
     }
 
     /**
@@ -354,6 +356,20 @@ class RemaController extends AppBaseController
         $rema->setAttribute("hora_de_llamada" ,Carbon::parse($rema->hora_de_llamada)->format("H:i"));
         $rema->setAttribute("hora_de_salida" ,Carbon::parse($rema->hora_de_salida)->format("H:i"));
         $rema->setAttribute("hora_de_llegada" ,Carbon::parse($rema->hora_de_llegada)->format("H:i"));
+
+        return $rema;
+    }
+
+    public function getRemaTemporal()
+    {
+        $rema = Rema::where('user_id',auth()->user()->id)->first();
+
+        if (!$rema){
+            $rema = Rema::create([
+                'user_id' => auth()->user()->id,
+                'estado_id' => RemaEstado::TEMPORAL,
+            ]);
+        }
 
         return $rema;
     }

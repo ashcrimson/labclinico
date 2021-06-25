@@ -18,6 +18,10 @@ Route::group(['as'=>'api.','namespace' => 'API'], function () {
 
         Route::resource('paciente_previsions', 'PacientePrevisionAPIController');
 
+        Route::resource('rema_signo_vitals', 'RemaSignoVitalAPIController');
+
+        Route::resource('rema_ventilacion_mecanicas', 'RemaVentilacionMecanicaAPIController');
+
     });
 
 
