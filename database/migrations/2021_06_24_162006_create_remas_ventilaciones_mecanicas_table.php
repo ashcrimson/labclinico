@@ -14,8 +14,8 @@ class CreateRemasVentilacionesMecanicasTable extends Migration
     public function up()
     {
         Schema::create('remas_ventilaciones_mecanicas', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedBigInteger('rema_id')->index('fk_remas_ventilaciones_mecanicas_remas1_idx');
+            $table->id();
+            $table->unsignedBigInteger('rema_id')->index('ventilaciones_mecanicas_idx');
             $table->timestamp('hora');
             $table->string('vol');
             $table->string('peep');

@@ -14,7 +14,7 @@ class AddForeignKeysToPacientesTable extends Migration
     public function up()
     {
         Schema::table('pacientes', function (Blueprint $table) {
-            $table->foreign('prevision_id', 'fk_pacientes_previsiones1')->references('id')->on('pacientes_previsiones')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('prevision_id', 'fk_pacientes_previsiones1')->references('id')->on('pacientes_previsiones');
         });
     }
 

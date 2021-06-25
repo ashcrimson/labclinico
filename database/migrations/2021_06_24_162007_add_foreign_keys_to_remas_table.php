@@ -14,8 +14,8 @@ class AddForeignKeysToRemasTable extends Migration
     public function up()
     {
         Schema::table('remas', function (Blueprint $table) {
-            $table->foreign('estado_id', 'fk_remas_estados1')->references('id')->on('remas_estados')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('paciente_id', 'fk_remas_pacientes1')->references('id')->on('pacientes')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('estado_id', 'fk_remas_estados1')->references('id')->on('remas_estados');
+            $table->foreign('paciente_id', 'fk_remas_pacientes1')->references('id')->on('pacientes');
         });
     }
 

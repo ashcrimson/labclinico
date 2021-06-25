@@ -15,7 +15,7 @@ class CreateRemasSignosVitalesTable extends Migration
     {
         Schema::create('remas_signos_vitales', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedBigInteger('rema_id')->index('fk_remas_signos_vitales_remas1_idx');
+            $table->unsignedBigInteger('rema_id')->index('fk_signos_vitales_remas1_idx');
             $table->timestamp('hora');
             $table->integer('pulso');
             $table->integer('presion_arterial_ps');

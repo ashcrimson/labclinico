@@ -14,7 +14,7 @@ class AddForeignKeysToRemasSignosVitalesTable extends Migration
     public function up()
     {
         Schema::table('remas_signos_vitales', function (Blueprint $table) {
-            $table->foreign('rema_id', 'fk_remas_signos_vitales_remas1')->references('id')->on('remas')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->foreign('rema_id', 'fk_remas_signos_vitales_remas1')->references('id')->on('remas');
         });
     }
 

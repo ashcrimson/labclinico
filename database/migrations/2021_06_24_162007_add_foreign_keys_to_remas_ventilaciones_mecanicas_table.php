@@ -14,7 +14,7 @@ class AddForeignKeysToRemasVentilacionesMecanicasTable extends Migration
     public function up()
     {
         Schema::table('remas_ventilaciones_mecanicas', function (Blueprint $table) {
-            $table->foreign('rema_id', 'fk_remas_ventilaciones_mecanicas_remas1')->references('id')->on('remas')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->foreign('rema_id', 'fk_ventilaciones_mecanicas1')->references('id')->on('remas');
         });
     }
 
@@ -26,7 +26,7 @@ class AddForeignKeysToRemasVentilacionesMecanicasTable extends Migration
     public function down()
     {
         Schema::table('remas_ventilaciones_mecanicas', function (Blueprint $table) {
-            $table->dropForeign('fk_remas_ventilaciones_mecanicas_remas1');
+            $table->dropForeign('fk_ventilaciones_mecanicas1');
         });
     }
 }

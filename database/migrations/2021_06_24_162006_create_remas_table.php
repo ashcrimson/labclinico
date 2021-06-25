@@ -14,7 +14,7 @@ class CreateRemasTable extends Migration
     public function up()
     {
         Schema::create('remas', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->unsignedBigInteger('paciente_id')->nullable()->index('fk_remas_pacientes1');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('estado_id')->index('fk_remas_estados1');
@@ -24,7 +24,7 @@ class CreateRemasTable extends Migration
             $table->timestamp('hora_de_llamada')->nullable();
             $table->timestamp('hora_de_salida')->nullable();
             $table->timestamp('hora_de_llegada')->nullable();
-            $table->string('clasificacion_triaje', 45)->nullable();
+            $table->string('clasificacion_triaje')->nullable();
             $table->text('motivo_consulta')->nullable();
             $table->text('evaluacion_primaria_a')->nullable();
             $table->text('evaluacion_primaria_b')->nullable();
@@ -43,24 +43,24 @@ class CreateRemasTable extends Migration
             $table->text('medicamentos_habituales')->nullable();
             $table->string('via_aerea')->nullable();
             $table->string('aspiracion_secreciones')->nullable();
-            $table->string('oxigenoterapia_fio2', 45)->nullable();
-            $table->string('asistencia_ventilatoria', 45)->nullable();
-            $table->string('acceso_vascular_numero', 45)->nullable();
-            $table->string('acceso_vascular_ubicacion', 45)->nullable();
-            $table->string('administracion_parenteral', 45)->nullable();
-            $table->string('sondeo_gastrico_numero', 45)->nullable();
-            $table->string('sondeo_gastrico_debito', 45)->nullable();
-            $table->char('monitoreo_ekg', 2)->nullable();
-            $table->string('desfibrilacion', 45)->nullable();
-            $table->string('cardioversion_farm', 45)->nullable();
-            $table->string('marcapaso', 45)->nullable();
-            $table->string('frecuencia_cardiaca', 45)->nullable();
-            $table->string('inmovilizacion', 45)->nullable();
-            $table->char('extricacion', 2)->nullable();
-            $table->string('rcr', 45)->nullable();
-            $table->string('sondeo_vesical', 45)->nullable();
-            $table->string('otros', 45)->nullable();
-            $table->dateTime('ventilacion_mecanica_hora_recepcion')->nullable();
+            $table->string('oxigenoterapia_fio2')->nullable();
+            $table->string('asistencia_ventilatoria')->nullable();
+            $table->string('acceso_vascular_numero')->nullable();
+            $table->string('acceso_vascular_ubicacion')->nullable();
+            $table->string('administracion_parenteral')->nullable();
+            $table->string('sondeo_gastrico_numero')->nullable();
+            $table->string('sondeo_gastrico_debito')->nullable();
+            $table->string('monitoreo_ekg')->nullable();
+            $table->string('desfibrilacion')->nullable();
+            $table->string('cardioversion_farm')->nullable();
+            $table->string('marcapaso')->nullable();
+            $table->string('frecuencia_cardiaca')->nullable();
+            $table->string('inmovilizacion')->nullable();
+            $table->string('extricacion')->nullable();
+            $table->string('rcr')->nullable();
+            $table->string('sondeo_vesical')->nullable();
+            $table->string('otros')->nullable();
+            $table->dateTime('ventilacion_hora_recepcion')->nullable();
             $table->dateTime('fallecimiento_hora')->nullable();
             $table->timestamps();
             $table->softDeletes();
