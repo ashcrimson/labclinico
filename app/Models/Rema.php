@@ -73,7 +73,6 @@ class Rema extends Model
 
     protected $dates = ['deleted_at'];
 
-    protected $appends = ['text'];
 
 
     public $fillable = [
@@ -139,6 +138,9 @@ class Rema extends Model
         'numero_unidad' => 'string',
         'nombres_conductor' => 'string',
         'apellidos_conductor' => 'string',
+        'hora_de_llamada' => 'datetime',
+        'hora_de_salida' => 'datetime',
+        'hora_de_llegada' => 'datetime',
         'clasificacion_triaje' => 'string',
         'motivo_consulta' => 'string',
         'evaluacion_primaria_a' => 'string',
@@ -175,6 +177,8 @@ class Rema extends Model
         'rcr' => 'string',
         'sondeo_vesical' => 'string',
         'otros' => 'string',
+        'ventilacion_hora_recepcion' => 'datetime',
+        'fallecimiento_hora' => 'datetime'
     ];
 
     /**
@@ -286,8 +290,4 @@ class Rema extends Model
         return $this->estado_id==RemaEstado::TEMPORAL;
     }
 
-    public function getTextAttribute()
-    {
-        return "text";
-    }
 }
