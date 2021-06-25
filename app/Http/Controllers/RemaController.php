@@ -288,7 +288,7 @@ class RemaController extends AppBaseController
 
     public function getRemaTemporal()
     {
-        $rema = Rema::where('user_id',auth()->user()->id)->first();
+        $rema = Rema::where('user_id',auth()->user()->id)->where('estado_id',RemaEstado::TEMPORAL)->first();
 
         if (!$rema){
             $rema = Rema::create([
