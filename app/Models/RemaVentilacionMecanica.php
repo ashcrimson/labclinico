@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Eloquent as Model;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class RemaVentilacionMecanica
@@ -23,14 +23,14 @@ class RemaVentilacionMecanica extends Model
     use SoftDeletes;
 
     public $table = 'remas_ventilaciones_mecanicas';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
 
     protected $dates = ['deleted_at'];
 
-
+    protected $appends = ['hora_format'];
 
     public $fillable = [
         'rema_id',
@@ -82,5 +82,10 @@ class RemaVentilacionMecanica extends Model
     public function rema()
     {
         return $this->belongsTo(\App\Models\Rema::class, 'rema_id');
+    }
+
+    public function getHoraFormatAttribute()
+    {
+        return $this->hora->format("g:i A");
     }
 }

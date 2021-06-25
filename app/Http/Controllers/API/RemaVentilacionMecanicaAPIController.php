@@ -35,9 +35,13 @@ class RemaVentilacionMecanicaAPIController extends AppBaseController
             $query->limit($request->get('limit'));
         }
 
+        if ($request->rema_id){
+            $query->where('rema_id',$request->rema_id);
+        }
+
         $remaVentilacionMecanicas = $query->get();
 
-        return $this->sendResponse(RemaVentilacionMecanicaResource::collection($remaVentilacionMecanicas), 'Rema Ventilacion Mecanicas retrieved successfully');
+        return $this->sendResponse($remaVentilacionMecanicas, 'Rema Ventilacion Mecanicas retrieved successfully');
     }
 
     /**
@@ -55,7 +59,7 @@ class RemaVentilacionMecanicaAPIController extends AppBaseController
         /** @var RemaVentilacionMecanica $remaVentilacionMecanica */
         $remaVentilacionMecanica = RemaVentilacionMecanica::create($input);
 
-        return $this->sendResponse(new RemaVentilacionMecanicaResource($remaVentilacionMecanica), 'Rema Ventilacion Mecanica saved successfully');
+        return $this->sendResponse($remaVentilacionMecanica, 'Rema Ventilacion Mecanica saved successfully');
     }
 
     /**
@@ -75,7 +79,7 @@ class RemaVentilacionMecanicaAPIController extends AppBaseController
             return $this->sendError('Rema Ventilacion Mecanica not found');
         }
 
-        return $this->sendResponse(new RemaVentilacionMecanicaResource($remaVentilacionMecanica), 'Rema Ventilacion Mecanica retrieved successfully');
+        return $this->sendResponse($remaVentilacionMecanica, 'Rema Ventilacion Mecanica retrieved successfully');
     }
 
     /**
@@ -99,7 +103,7 @@ class RemaVentilacionMecanicaAPIController extends AppBaseController
         $remaVentilacionMecanica->fill($request->all());
         $remaVentilacionMecanica->save();
 
-        return $this->sendResponse(new RemaVentilacionMecanicaResource($remaVentilacionMecanica), 'RemaVentilacionMecanica updated successfully');
+        return $this->sendResponse($remaVentilacionMecanica, 'RemaVentilacionMecanica updated successfully');
     }
 
     /**

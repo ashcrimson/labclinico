@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Eloquent as Model;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Rema
@@ -73,6 +73,7 @@ class Rema extends Model
 
     protected $dates = ['deleted_at'];
 
+    protected $appends = ['text'];
 
 
     public $fillable = [
@@ -277,11 +278,16 @@ class Rema extends Model
      **/
     public function ventilacionesMecanicas()
     {
-        return $this->hasMany(\App\Models\RemaVentilacioneMecanica::class, 'rema_id');
+        return $this->hasMany(\App\Models\RemaVentilacionMecanica::class, 'rema_id');
     }
 
     public function esTemporal()
     {
         return $this->estado_id==RemaEstado::TEMPORAL;
+    }
+
+    public function getTextAttribute()
+    {
+        return "text";
     }
 }

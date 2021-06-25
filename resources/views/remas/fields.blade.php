@@ -232,8 +232,21 @@
                     <!-- Via Aerea Field -->
                     <div class="form-group col-sm-6">
                         {!! Form::label('via_aerea', 'Via Aerea:') !!}
-                        {!! Form::text('via_aerea', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+                        {!!
+                            Form::select(
+                                'via_aerea',
+                                [
+                                    '' => 'Seleccione uno...',
+                                    'C MAYO' => 'C MAYO',
+                                    'TET'=>'TET',
+                                    'TDSG' => 'TDSG'
+                                ]
+                                , null
+                                , ['id'=>'via_aerea','class' => 'form-control','style'=>'width: 100%']
+                            )
+                        !!}
                     </div>
+
 
                     <!-- Aspiracion Secreciones Field -->
                     <div class="form-group col-sm-6">
@@ -286,25 +299,75 @@
                     <!-- Monitoreo Ekg Field -->
                     <div class="form-group col-sm-6">
                         {!! Form::label('monitoreo_ekg', 'Monitoreo Ekg:') !!}
-                        {!! Form::text('monitoreo_ekg', null, ['class' => 'form-control','maxlength' => 2,'maxlength' => 2]) !!}
+                        {!!
+                           Form::select(
+                               'monitoreo_ekg',
+                               [
+                                   '' => 'Seleccione uno...',
+                                   'SI' => 'SÍ',
+                                   'NO'=>'NO'
+                               ]
+                               , null
+                               , ['id'=>'monitoreo_ekg','class' => 'form-control','style'=>'width: 100%']
+                           )
+                       !!}
                     </div>
 
                     <!-- Desfibrilacion Field -->
                     <div class="form-group col-sm-6">
                         {!! Form::label('desfibrilacion', 'Desfibrilacion:') !!}
-                        {!! Form::text('desfibrilacion', null, ['class' => 'form-control','maxlength' => 45,'maxlength' => 45]) !!}
+                        {!!
+                          Form::select(
+                              'desfibrilacion',
+                              [
+                                  '' => 'Seleccione uno...',
+                                  'J1' => 'J1°',
+                                  'J2' => 'J2°',
+                                  'J3' => 'J3°',
+                                  'J4' => 'J4°',
+                                  'J5' => 'J5°',
+
+                              ]
+                              , null
+                              , ['id'=>'desfibrilacion','class' => 'form-control','style'=>'width: 100%']
+                          )
+                      !!}
                     </div>
 
                     <!-- Cardioversion Farm Field -->
                     <div class="form-group col-sm-6">
                         {!! Form::label('cardioversion_farm', 'Cardioversion Farm:') !!}
-                        {!! Form::text('cardioversion_farm', null, ['class' => 'form-control','maxlength' => 45,'maxlength' => 45]) !!}
+                        {!!
+                            Form::select(
+                                'cardioversion_farm',
+                                [
+                                    '' => 'Seleccione uno...',
+                                    'J1' => 'J1°',
+                                    'J2' => 'J2°',
+                                    'J3' => 'J3°',
+                                    'J4' => 'J4°',
+                                ]
+                                , null
+                                , ['id'=>'cardioversion_farm','class' => 'form-control','style'=>'width: 100%']
+                            )
+                        !!}
                     </div>
 
                     <!-- Marcapaso Field -->
                     <div class="form-group col-sm-6">
                         {!! Form::label('marcapaso', 'Marcapaso:') !!}
-                        {!! Form::text('marcapaso', null, ['class' => 'form-control','maxlength' => 45,'maxlength' => 45]) !!}
+                        {!!
+                           Form::select(
+                               'marcapaso',
+                               [
+                                   '' => 'Seleccione uno...',
+                                   'SI' => 'SÍ',
+                                   'NO'=>'NO'
+                               ]
+                               , null
+                               , ['id'=>'marcapaso','class' => 'form-control','style'=>'width: 100%']
+                           )
+                       !!}
                     </div>
 
                     <!-- Frecuencia Cardiaca Field -->
@@ -316,13 +379,38 @@
                     <!-- Inmovilizacion Field -->
                     <div class="form-group col-sm-6">
                         {!! Form::label('inmovilizacion', 'Inmovilizacion:') !!}
-                        {!! Form::text('inmovilizacion', null, ['class' => 'form-control','maxlength' => 45,'maxlength' => 45]) !!}
+                        {!!
+                           Form::select(
+                               'inmovilizacion',
+                               [
+                                   '' => 'Seleccione uno...',
+                                   'Férula' => 'Férula',
+                                   'Tabla' => 'Tabla',
+                                   'Collar' => 'Collar',
+                                   'Chaleco EX' => 'Chaleco EX',
+
+                               ]
+                               , null
+                               , ['id'=>'inmovilizacion','class' => 'form-control','style'=>'width: 100%']
+                           )
+                       !!}
                     </div>
 
                     <!-- Extricacion Field -->
                     <div class="form-group col-sm-6">
                         {!! Form::label('extricacion', 'Extricacion:') !!}
-                        {!! Form::text('extricacion', null, ['class' => 'form-control','maxlength' => 2,'maxlength' => 2]) !!}
+                        {!!
+                           Form::select(
+                               'extricacion',
+                               [
+                                   '' => 'Seleccione uno...',
+                                   'SI' => 'SÍ',
+                                   'NO'=>'NO'
+                               ]
+                               , null
+                               , ['id'=>'extricacion','class' => 'form-control','style'=>'width: 100%']
+                           )
+                       !!}
                     </div>
 
                     <!-- Rcr Field -->
@@ -343,39 +431,25 @@
                         {!! Form::text('otros', null, ['class' => 'form-control','maxlength' => 45,'maxlength' => 45]) !!}
                     </div>
 
-                    <!-- Ventilacion Mecanica Hora Recepcion Field -->
-                    <div class="form-group col-sm-6">
-                        {!! Form::label('ventilacion_hora_recepcion', 'Ventilacion Mecanica Hora Recepcion:') !!}
-                        {!! Form::date('ventilacion_hora_recepcion', null, ['class' => 'form-control','id'=>'ventilacion_hora_recepcion']) !!}
-                    </div>
 
-                    @section('scripts')
-                        <script type="text/javascript">
-                            $('#ventilacion_hora_recepcion').datetimepicker({
-                                format: 'YYYY-MM-DD HH:mm:ss',
-                                useCurrent: false
-                            })
-                        </script>
-                    @endsection
 
                 <!-- Fallecimiento Hora Field -->
                     <div class="form-group col-sm-6">
                         {!! Form::label('fallecimiento_hora', 'Fallecimiento Hora:') !!}
-                        {!! Form::date('fallecimiento_hora', null, ['class' => 'form-control','id'=>'fallecimiento_hora']) !!}
+                        {!! Form::time('fallecimiento_hora', null, ['class' => 'form-control','id'=>'fallecimiento_hora']) !!}
                     </div>
 
-                    @section('scripts')
-                        <script type="text/javascript">
-                            $('#fallecimiento_hora').datetimepicker({
-                                format: 'YYYY-MM-DD HH:mm:ss',
-                                useCurrent: false
-                            })
-                        </script>
-                    @endsection
 
                 </div>
             </div>
             <!-- /.card-body -->
         </div>
+    </div>
+
+    <div class="form-group col-sm-12 col-lg-12">
+
+
+
+        @include('remas.panel_ventilaciones_mecanicas')
     </div>
 

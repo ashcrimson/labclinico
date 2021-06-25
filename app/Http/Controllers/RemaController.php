@@ -150,6 +150,7 @@ class RemaController extends AppBaseController
             $rema = $this->addAttributosRema($rema);
         }
 
+
         if (empty($rema)) {
             Flash::error('Rema not found');
 
