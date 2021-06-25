@@ -146,7 +146,9 @@ class RemaController extends AppBaseController
         /** @var Rema $rema */
         $rema = Rema::find($id);
 
-        $rema = $this->addAttributosRema($rema);
+        if (!$rema->esTemporal()){
+            $rema = $this->addAttributosRema($rema);
+        }
 
         if (empty($rema)) {
             Flash::error('Rema not found');
