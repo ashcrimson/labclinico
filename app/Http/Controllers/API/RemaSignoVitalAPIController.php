@@ -41,7 +41,7 @@ class RemaSignoVitalAPIController extends AppBaseController
 
         $remaSignoVitals = $query->get();
 
-        return $this->sendResponse(RemaSignoVitalResource::collection($remaSignoVitals), 'Rema Signo Vitals retrieved successfully');
+        return $this->sendResponse($remaSignoVitals, 'Rema Signo Vitals retrieved successfully');
     }
 
     /**
@@ -59,7 +59,7 @@ class RemaSignoVitalAPIController extends AppBaseController
         /** @var RemaSignoVital $remaSignoVital */
         $remaSignoVital = RemaSignoVital::create($input);
 
-        return $this->sendResponse(new RemaSignoVitalResource($remaSignoVital), 'Rema Signo Vital saved successfully');
+        return $this->sendResponse($remaSignoVital, 'Rema Signo Vital saved successfully');
     }
 
     /**
@@ -79,7 +79,7 @@ class RemaSignoVitalAPIController extends AppBaseController
             return $this->sendError('Rema Signo Vital not found');
         }
 
-        return $this->sendResponse(new RemaSignoVitalResource($remaSignoVital), 'Rema Signo Vital retrieved successfully');
+        return $this->sendResponse($remaSignoVital, 'Rema Signo Vital retrieved successfully');
     }
 
     /**
@@ -103,7 +103,7 @@ class RemaSignoVitalAPIController extends AppBaseController
         $remaSignoVital->fill($request->all());
         $remaSignoVital->save();
 
-        return $this->sendResponse(new RemaSignoVitalResource($remaSignoVital), 'RemaSignoVital updated successfully');
+        return $this->sendResponse($remaSignoVital, 'RemaSignoVital updated successfully');
     }
 
     /**

@@ -30,14 +30,14 @@ class RemaSignoVital extends Model
     use SoftDeletes;
 
     public $table = 'remas_signos_vitales';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
 
     protected $dates = ['deleted_at'];
 
-
+    protected $appends = ['hora_format'];
 
     public $fillable = [
         'rema_id',
@@ -110,5 +110,10 @@ class RemaSignoVital extends Model
     public function rema()
     {
         return $this->belongsTo(\App\Models\Rema::class, 'rema_id');
+    }
+
+    public function getHoraFormatAttribute()
+    {
+        return $this->hora->format("g:i A");
     }
 }

@@ -23,6 +23,7 @@
         <table class="table table-bordered table-sm table-striped mb-0">
             <thead>
             <tr>
+                <th>Hora</th>
                 <th>Temp Axilar</th>
                 <th>Temp Rectal</th>
                 <th>PAS</th>
@@ -39,6 +40,7 @@
                         <td colspan="10" class="text-center">Ningún Registro agregado</td>
                 </tr>
                 <tr v-for="det in signos">
+                    <td v-text="det.hora_format"></td>
                     <td v-text="det.temperatura_axilar"></td>
                     <td v-text="det.temperatura_rectal"></td>
                     <td v-text="det.presion_arterial_ps"></td>
