@@ -62,8 +62,8 @@
                                                 <td>{{$rema->hora_de_llamada}}</td>
                                                 <td>{{$rema->hora_de_salida}}</td>
                                                 <td>{{$rema->hora_de_llegada}}</td>
-                                                <td>{{$rema->atencion->motivo_consulta}}</td>
-                                                <td>{{$rema->atencion->clasificacion_triaje}}</td>
+                                                <td>{{$rema->motivo_consulta}}</td>
+                                                <td>{{$rema->clasificacion_triaje}}</td>
                                                 <td>{{$rema->estado->nombre}}</td>
                                                 <td>{{$rema->user->name}}</td>
                                                 <td>
