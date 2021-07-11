@@ -96,11 +96,7 @@
                                 <input class="form-control" type="number" v-model="editedItem.presion_arterial_pd">
                             </div>
 
-                            <!-- Frecuencia Cardiaca Field -->
-                            <div class="form-group col-sm-6">
-                                <label for="frecuencia_cardiaca">Cardiaca:</label>
-                                <input class="form-control" type="text" v-model="editedItem.frecuencia_cardiaca">
-                            </div>
+
 
                             <!-- Frecuencia Respiratoria Field -->
                             <div class="form-group col-sm-6">

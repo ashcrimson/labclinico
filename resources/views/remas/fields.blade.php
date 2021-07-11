@@ -117,8 +117,10 @@
                                 , null
                                 , ['id'=>'clasificacion_triaje','class' => 'form-control','style'=>'width: 100%']
                             )
-                        !!}
+                        !!}R
                     </div>
+
+                    <div class="form-group col-sm-12" style="padding: 0px; margin: 0px"></div>
 
                     <!-- Motivo Consulta Field -->
                     <div class="form-group col-sm-12 col-lg-6">
@@ -134,23 +136,23 @@
                         {!! Form::textarea('atencion_enfermeria', null, ['class' => 'form-control','rows' => 2]) !!}
                     </div>
 
-                    <!-- Antecedentes Morbidos Field -->
-                    <div class="form-group col-sm-12 col-lg-6">
-                        {!! Form::label('antecedentes_morbidos', 'Antecedentes Mórbidos:') !!}
-                        {!! Form::textarea('antecedentes_morbidos', null, ['class' => 'form-control','rows' => 2]) !!}
-                    </div>
+{{--                    <!-- Antecedentes Morbidos Field -->--}}
+{{--                    <div class="form-group col-sm-12 col-lg-6">--}}
+{{--                        {!! Form::label('antecedentes_morbidos', 'Antecedentes Mórbidos:') !!}--}}
+{{--                        {!! Form::textarea('antecedentes_morbidos', null, ['class' => 'form-control','rows' => 2]) !!}--}}
+{{--                    </div>--}}
 
-                    <!-- Alergias Field -->
-                    <div class="form-group col-sm-12 col-lg-6">
-                        {!! Form::label('alergias', 'Alergias:') !!}
-                        {!! Form::textarea('alergias', null, ['class' => 'form-control','rows' => 2]) !!}
-                    </div>
+{{--                    <!-- Alergias Field -->--}}
+{{--                    <div class="form-group col-sm-12 col-lg-6">--}}
+{{--                        {!! Form::label('alergias', 'Alergias:') !!}--}}
+{{--                        {!! Form::textarea('alergias', null, ['class' => 'form-control','rows' => 2]) !!}--}}
+{{--                    </div>--}}
 
                     <!-- Medicamentos Habituales Field -->
-                    <div class="form-group col-sm-12 col-lg-6">
-                        {!! Form::label('medicamentos_habituales', 'Medicamentos Habituales:') !!}
-                        {!! Form::textarea('medicamentos_habituales', null, ['class' => 'form-control','rows' => 2]) !!}
-                    </div>
+{{--                    <div class="form-group col-sm-12 col-lg-6">--}}
+{{--                        {!! Form::label('medicamentos_habituales', 'Medicamentos Habituales:') !!}--}}
+{{--                        {!! Form::textarea('medicamentos_habituales', null, ['class' => 'form-control','rows' => 2]) !!}--}}
+{{--                    </div>--}}
 
 
                     <div class="form-group col-sm-6">
@@ -316,41 +318,43 @@
                     <!-- Desfibrilacion Field -->
                     <div class="form-group col-sm-6">
                         {!! Form::label('desfibrilacion', 'Desfibrilacion:') !!}
-                        {!!
-                          Form::select(
-                              'desfibrilacion',
-                              [
-                                  '' => 'Seleccione uno...',
-                                  'J1' => 'J1°',
-                                  'J2' => 'J2°',
-                                  'J3' => 'J3°',
-                                  'J4' => 'J4°',
-                                  'J5' => 'J5°',
+                        {!! Form::text('desfibrilacion', null, ['class' => 'form-control','rows' => 4]) !!}
+{{--                        {!!--}}
+{{--                          Form::select(--}}
+{{--                              'desfibrilacion',--}}
+{{--                              [--}}
+{{--                                  '' => 'Seleccione uno...',--}}
+{{--                                  'J1' => 'J1°',--}}
+{{--                                  'J2' => 'J2°',--}}
+{{--                                  'J3' => 'J3°',--}}
+{{--                                  'J4' => 'J4°',--}}
+{{--                                  'J5' => 'J5°',--}}
 
-                              ]
-                              , null
-                              , ['id'=>'desfibrilacion','class' => 'form-control','style'=>'width: 100%']
-                          )
-                      !!}
+{{--                              ]--}}
+{{--                              , null--}}
+{{--                              , ['id'=>'desfibrilacion','class' => 'form-control','style'=>'width: 100%']--}}
+{{--                          )--}}
+{{--                      !!}--}}
                     </div>
 
                     <!-- Cardioversion Farm Field -->
                     <div class="form-group col-sm-6">
                         {!! Form::label('cardioversion_farm', 'Cardioversion Farm:') !!}
-                        {!!
-                            Form::select(
-                                'cardioversion_farm',
-                                [
-                                    '' => 'Seleccione uno...',
-                                    'J1' => 'J1°',
-                                    'J2' => 'J2°',
-                                    'J3' => 'J3°',
-                                    'J4' => 'J4°',
-                                ]
-                                , null
-                                , ['id'=>'cardioversion_farm','class' => 'form-control','style'=>'width: 100%']
-                            )
-                        !!}
+                        {!! Form::text('cardioversion_farm', null, ['class' => 'form-control']) !!}
+{{--                        {!!--}}
+{{--                            Form::select(--}}
+{{--                                'cardioversion_farm',--}}
+{{--                                [--}}
+{{--                                    '' => 'Seleccione uno...',--}}
+{{--                                    'J1' => 'J1°',--}}
+{{--                                    'J2' => 'J2°',--}}
+{{--                                    'J3' => 'J3°',--}}
+{{--                                    'J4' => 'J4°',--}}
+{{--                                ]--}}
+{{--                                , null--}}
+{{--                                , ['id'=>'cardioversion_farm','class' => 'form-control','style'=>'width: 100%']--}}
+{{--                            )--}}
+{{--                        !!}--}}
                     </div>
 
                     <!-- Marcapaso Field -->
@@ -379,21 +383,22 @@
                     <!-- Inmovilizacion Field -->
                     <div class="form-group col-sm-6">
                         {!! Form::label('inmovilizacion', 'Inmovilizacion:') !!}
-                        {!!
-                           Form::select(
-                               'inmovilizacion',
-                               [
-                                   '' => 'Seleccione uno...',
-                                   'Férula' => 'Férula',
-                                   'Tabla' => 'Tabla',
-                                   'Collar' => 'Collar',
-                                   'Chaleco EX' => 'Chaleco EX',
+                        {!! Form::text('inmovilizacion', null, ['class' => 'form-control']) !!}
+{{--                        {!!--}}
+{{--                           Form::select(--}}
+{{--                               'inmovilizacion',--}}
+{{--                               [--}}
+{{--                                   '' => 'Seleccione uno...',--}}
+{{--                                   'Férula' => 'Férula',--}}
+{{--                                   'Tabla' => 'Tabla',--}}
+{{--                                   'Collar' => 'Collar',--}}
+{{--                                   'Chaleco EX' => 'Chaleco EX',--}}
 
-                               ]
-                               , null
-                               , ['id'=>'inmovilizacion','class' => 'form-control','style'=>'width: 100%']
-                           )
-                       !!}
+{{--                               ]--}}
+{{--                               , null--}}
+{{--                               , ['id'=>'inmovilizacion','class' => 'form-control','style'=>'width: 100%']--}}
+{{--                           )--}}
+{{--                       !!}--}}
                     </div>
 
                     <!-- Extricacion Field -->
@@ -415,7 +420,7 @@
 
                     <!-- Rcr Field -->
                     <div class="form-group col-sm-6">
-                        {!! Form::label('rcr', 'Rcr:') !!}
+                        {!! Form::label('rcr', 'RCP:') !!}
                         {!! Form::text('rcr', null, ['class' => 'form-control','maxlength' => 45,'maxlength' => 45]) !!}
                     </div>
 

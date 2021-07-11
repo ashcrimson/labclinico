@@ -208,9 +208,6 @@ class Rema extends Model
         'motivo_consulta' => 'required|string',
         'clasificacion_triaje' => 'required|string|max:255',
         'atencion_enfermeria' => 'required|string',
-        'antecedentes_morbidos' => 'required|string',
-        'alergias' => 'required|string',
-        'medicamentos_habituales' => 'required|string',
 
         'evaluacion_primaria_a' => 'nullable|string',
         'evaluacion_primaria_b' => 'nullable|string',
