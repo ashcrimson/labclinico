@@ -1,6 +1,6 @@
 <div class="card card-outline card-success" id="panel_ventilaciones_mecanicas">
     <div class="card-header">
-        <h3 class="card-title">Ventilaciones mecatincas</h3>
+        <h3 class="card-title">Ventilaciones mecánicas</h3>
 
         <div class="card-tools">
 
