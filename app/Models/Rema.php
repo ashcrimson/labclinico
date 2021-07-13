@@ -138,9 +138,9 @@ class Rema extends Model
         'numero_unidad' => 'string',
         'nombres_conductor' => 'string',
         'apellidos_conductor' => 'string',
-//        'hora_de_llamada' => 'datetime',
-//        'hora_de_salida' => 'datetime',
-//        'hora_de_llegada' => 'datetime',
+        'hora_de_llamada' => 'datetime',
+        'hora_de_salida' => 'datetime',
+        'hora_de_llegada' => 'datetime',
         'clasificacion_triaje' => 'string',
         'motivo_consulta' => 'string',
         'evaluacion_primaria_a' => 'string',
@@ -177,8 +177,8 @@ class Rema extends Model
         'rcr' => 'string',
         'sondeo_vesical' => 'string',
         'otros' => 'string',
-//        'ventilacion_hora_recepcion' => 'datetime',
-//        'fallecimiento_hora' => 'datetime'
+        'ventilacion_hora_recepcion' => 'datetime',
+        'fallecimiento_hora' => 'datetime'
     ];
 
     /**

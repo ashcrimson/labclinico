@@ -231,3 +231,12 @@ function timeToDateTime($time){
     return Carbon::now()->setTime($hora,$minuto,0);
 
 }
+
+function getHoraDateTime($fecha){
+    if (!$fecha){
+        return null;
+    }
+
+    return Carbon::parse($fecha)->format("H:i");
+
+}

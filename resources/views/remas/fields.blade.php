@@ -59,19 +59,19 @@
                     <!-- Hora De Llamada Field -->
                     <div class="form-group col-sm-6">
                         {!! Form::label('hora_de_llamada', 'Hora De Llamada:') !!}
-                        {!! Form::time('hora_de_llamada', null, ['class' => 'form-control']) !!}
+                        {!! Form::time('hora_de_llamada', getHoraDateTime($rema->hora_de_llamada), ['class' => 'form-control']) !!}
                     </div>
 
                     <!-- Hora De Salida Field -->
                     <div class="form-group col-sm-6">
                         {!! Form::label('hora_de_salida', 'Hora De Salida:') !!}
-                        {!! Form::time('hora_de_salida', null, ['class' => 'form-control']) !!}
+                        {!! Form::time('hora_de_salida', getHoraDateTime($rema->hora_de_salida), ['class' => 'form-control']) !!}
                     </div>
 
                     <!-- Hora De Llegada Field -->
                     <div class="form-group col-sm-6">
                         {!! Form::label('hora_de_llegada', 'Hora De Llegada:') !!}
-                        {!! Form::time('hora_de_llegada', null, ['class' => 'form-control']) !!}
+                        {!! Form::time('hora_de_llegada', getHoraDateTime($rema->hora_de_llegada), ['class' => 'form-control']) !!}
                     </div>
 
                     <!-- User Id Field -->
@@ -441,7 +441,7 @@
                 <!-- Fallecimiento Hora Field -->
                     <div class="form-group col-sm-6">
                         {!! Form::label('fallecimiento_hora', 'Fallecimiento Hora:') !!}
-                        {!! Form::time('fallecimiento_hora', null, ['class' => 'form-control','id'=>'fallecimiento_hora']) !!}
+                        {!! Form::time('fallecimiento_hora', getHoraDateTime($rema->fallecimiento_hora), ['class' => 'form-control','id'=>'fallecimiento_hora']) !!}
                     </div>
 
 
