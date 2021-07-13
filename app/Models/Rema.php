@@ -177,8 +177,8 @@ class Rema extends Model
         'rcr' => 'string',
         'sondeo_vesical' => 'string',
         'otros' => 'string',
-        'ventilacion_hora_recepcion' => 'datetime',
-        'fallecimiento_hora' => 'datetime'
+//        'ventilacion_hora_recepcion' => 'datetime',
+//        'fallecimiento_hora' => 'datetime'
     ];
 
     /**
