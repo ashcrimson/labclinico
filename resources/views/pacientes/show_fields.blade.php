@@ -37,3 +37,11 @@
 {!! Form::label('sexo', 'Sexo:') !!}
 {!! $paciente->sexo !!}<br>
 
+<!-- Clave Field -->
+{!! Form::label('clave', 'Clave:') !!}
+{!! $paciente->clave !!}<br>
+
+
+<!-- Movil Envia Field -->
+{!! Form::label('movil_envia', 'Movil Envia:') !!}
+{!! $paciente->movil_envia ? 'Si' : 'No' !!}<br>

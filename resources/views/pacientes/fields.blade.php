@@ -87,7 +87,7 @@
         {!! Form::label('telefono', 'Telefono:') !!}
         {!! Form::text('telefono', null, ['id' => 'telefono','class' => 'form-control','maxlength' => 255]) !!}
     </div>
-    
+
     <!-- Direccion Field -->
     <div class="form-group col-sm-12">
         {!! Form::label('direccion', 'Dirección:') !!}
@@ -101,6 +101,20 @@
         {!! Form::text('familiar_responsable', null, ['id' => 'familiar_responsable','class' => 'form-control','maxlength' => 255]) !!}
     </div>
 
+    <!-- Clave Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('clave', 'Clave:') !!}
+        {!! Form::text('clave', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+    </div>
+
+    <!-- Movil Envia Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('movil_envia', 'Movil Envia:') !!}
+        <label class="checkbox-inline">
+            {!! Form::hidden('movil_envia', 0) !!}
+            {!! Form::checkbox('movil_envia', '1', null) !!}
+        </label>
+    </div>
 
 </div>
 

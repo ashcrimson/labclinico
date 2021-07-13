@@ -280,6 +280,8 @@ class RemaController extends AppBaseController
             'telefono' => $request->telefono,
             'telefono2' => $request->telefono2,
             'prevision_id' => $request->prevision_id,
+            'clave' => $request->clave,
+            'movil_envia' => $request->movil_envia,
 
         ]);
 
@@ -323,6 +325,8 @@ class RemaController extends AppBaseController
         $rema->setAttribute("telefono" ,$rema->paciente->telefono);
         $rema->setAttribute("telefono2" ,$rema->paciente->telefono2);
         $rema->setAttribute("prevision_id" ,$rema->paciente->prevision_id);
+        $rema->setAttribute("clave" ,$rema->paciente->clave);
+        $rema->setAttribute("movil_envia" ,$rema->paciente->movil_envia);
 //        $rema->setAttribute("sigla_grado" ,$rema->paciente->sigla_grado);
 //        $rema->setAttribute("unid_rep_dot" ,$rema->paciente->unid_rep_dot);
 //        $rema->setAttribute("cond_alta_dot" ,$rema->paciente->cond_alta_dot);

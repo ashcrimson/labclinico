@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Paciente
  * @package App\Models
- * @version June 10, 2021, 8:52 am CST
+ * @version July 12, 2021, 8:18 pm CST
  *
  * @property \Illuminate\Database\Eloquent\Collection $atenciones
  * @property \Illuminate\Database\Eloquent\Collection $remas
@@ -34,6 +34,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $nombre_completo
  * @property Carbon $created_at
  * @property Carbon $updated_at
+ * @property string $clave
+ * @property boolean $movil_envia
  */
 class Paciente extends Model
 {
@@ -67,6 +69,8 @@ class Paciente extends Model
         'telefono',
         'telefono2',
         'prevision_id',
+        'clave',
+        'movil_envia'
     ];
 
     /**
