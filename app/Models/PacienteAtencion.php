@@ -94,7 +94,7 @@ class PacienteAtencion extends Model
         'temperatura' => 'required|integer',
         'saturacion_oxigeno' => 'required|integer',
         'atencion_enfermeria' => 'required|string',
-        'antecedentes_morbidos' => 'required|string',
+        'antecedentes_morbidos' => 'string',
         'alergias' => 'required|string',
         'medicamentos_habituales' => 'required|string',
         'created_at' => 'nullable',
