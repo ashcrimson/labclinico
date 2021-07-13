@@ -117,7 +117,7 @@
                                 , null
                                 , ['id'=>'clasificacion_triaje','class' => 'form-control','style'=>'width: 100%']
                             )
-                        !!}R
+                        !!}
                     </div>
 
                     <div class="form-group col-sm-12" style="padding: 0px; margin: 0px"></div>
