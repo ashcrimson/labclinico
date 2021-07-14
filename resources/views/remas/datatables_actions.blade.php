@@ -2,7 +2,7 @@
     <i class="fa fa-eye"></i>
 </a>
 
-@if(auth()->user()->id == $rema->user_id || Auth::user()->role('medico'))
+@if(auth()->user()->id == $rema->user_id || Auth::user()->role('Medico'))
 <a href="{{ route('remas.edit', $id) }}" data-toggle="tooltip" title="Editar" class='btn btn-outline-info btn-sm'>
     <i class="fa fa-edit"></i>
 </a>
