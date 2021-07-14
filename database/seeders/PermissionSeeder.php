@@ -18,9 +18,8 @@ class PermissionSeeder extends Seeder
 
         foreach (Route::getRoutes() as $route){
 
-            if ($route->getName()){
-                factory(Permission::class,1)->create(['name' => $route->getName() ]);
-            }
+            Permission::firstOrCreate(['name' => 'Llenar informe medico']);
+            Permission::firstOrCreate(['name' => 'Eliminaringreso']);
         }
 
     }

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Rema
  * @package App\Models
- * @version June 24, 2021, 4:27 pm CST
+ * @version July 13, 2021, 9:35 pm CST
  *
  * @property \App\Models\RemasEstado $estado
  * @property \App\Models\Paciente $paciente
@@ -60,6 +60,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $otros
  * @property string|\Carbon\Carbon $ventilacion_hora_recepcion
  * @property string|\Carbon\Carbon $fallecimiento_hora
+ * @property string $informe_medico
  */
 class Rema extends Model
 {
@@ -122,7 +123,8 @@ class Rema extends Model
         'sondeo_vesical',
         'otros',
         'ventilacion_hora_recepcion',
-        'fallecimiento_hora'
+        'fallecimiento_hora',
+        'informe_medico'
     ];
 
     /**
@@ -178,7 +180,8 @@ class Rema extends Model
         'sondeo_vesical' => 'string',
         'otros' => 'string',
         'ventilacion_hora_recepcion' => 'datetime',
-        'fallecimiento_hora' => 'datetime'
+        'fallecimiento_hora' => 'datetime',
+        'informe_medico' => 'string'
     ];
 
     /**

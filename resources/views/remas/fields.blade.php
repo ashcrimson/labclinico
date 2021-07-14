@@ -107,6 +107,13 @@
             <div class="card-body">
                 <div class="form-row">
 
+                    @can('Llenar informe medico')
+                        <div class="form-group col-sm-12">
+                            {!! Form::label('informe_medico', 'Informe Medico:') !!}
+                            {!! Form::textarea('informe_medico', null, ['class' => 'form-control','rows' => 3]) !!}
+                        </div>
+                    @endcan
+
                     <!-- Clasificacion Triaje Field -->
                     <div class="form-group col-sm-6">
                         {!! Form::label('clasificacion_triaje','Clasificacion Triage:') !!}

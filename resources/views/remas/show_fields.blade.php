@@ -79,6 +79,10 @@
         <!-- /.card-header -->
         <div class="card-body">
 
+            <!-- Informe Medico Field -->
+            {!! Form::label('informe_medico', 'Informe Medico:') !!}
+            {!! $rema->informe_medico !!}<br>
+
             <!-- Clasificacion Triaje Field -->
             {!! Form::label('clasificacion_triaje', 'Clasificacion Triaje:') !!}
             {!! $rema->clasificacion_triaje !!}<br>
