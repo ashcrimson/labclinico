@@ -14,7 +14,7 @@ class AddFieldToRemasTable extends Migration
     public function up()
     {
         Schema::table('remas', function (Blueprint $table) {
-            $table->string('informe_medico')->nullable();
+            $table->text('informe_medico')->nullable();
         });
     }
 

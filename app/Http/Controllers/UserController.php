@@ -23,11 +23,10 @@ class UserController extends AppBaseController
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('permission:users.index')->only('index');
-        $this->middleware('permission:users.show')->only('show');
-        $this->middleware('permission:users.create')->only(['create','store']);
-        $this->middleware('permission:users.edit')->only(['edit','update']);
-        $this->middleware('permission:users.destroy')->only('destroy');
+//        $this->middleware('permission:Ver Usuarios')->only(['show']);
+//        $this->middleware('permission:Crear Usuarios')->only(['create','store']);
+//        $this->middleware('permission:Editar Usuarios')->only(['edit','update']);
+//        $this->middleware('permission:Eliminar Usuarios')->only('destroy');
     }
 
 
