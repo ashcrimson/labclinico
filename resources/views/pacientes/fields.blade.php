@@ -70,7 +70,7 @@
     </div>
 
     <div class="form-group col-sm-3">
-        {!! Form::label('prevision_id','Prevision:') !!}
+        {!! Form::label('prevision_id','Previsión:') !!}
         {!!
             Form::select(
                 'prevision_id',
@@ -84,7 +84,7 @@
 
     <!-- telefono Field -->
     <div class="form-group col-sm-3">
-        {!! Form::label('telefono', 'Telefono:') !!}
+        {!! Form::label('telefono', 'Teléfono:') !!}
         {!! Form::text('telefono', null, ['id' => 'telefono','class' => 'form-control','maxlength' => 255]) !!}
     </div>
 
@@ -109,7 +109,7 @@
 
     <!-- Movil Envia Field -->
     <div class="form-group col-sm-6">
-        {!! Form::label('movil_envia', 'Movil Envia:') !!}
+        {!! Form::label('movil_envia', 'Movil Envía:') !!}
         <label class="checkbox-inline">
             {!! Form::hidden('movil_envia', 0) !!}
             {!! Form::checkbox('movil_envia', '1', null) !!}

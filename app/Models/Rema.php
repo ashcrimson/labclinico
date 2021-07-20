@@ -208,9 +208,9 @@ class Rema extends Model
         'hora_de_salida' => 'required',
         'hora_de_llegada' => 'required',
 
-        'motivo_consulta' => 'required|string',
-        'clasificacion_triaje' => 'required|string|max:255',
-        'atencion_enfermeria' => 'required|string',
+        'motivo_consulta' => 'nullable|string',
+        'clasificacion_triaje' => 'nullable|string|max:255',
+        'atencion_enfermeria' => 'nullable|string',
 
         'evaluacion_primaria_a' => 'nullable|string',
         'evaluacion_primaria_b' => 'nullable|string',

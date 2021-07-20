@@ -109,14 +109,14 @@
 
                     @can('Llenar informe medico')
                         <div class="form-group col-sm-12">
-                            {!! Form::label('informe_medico', 'Informe Medico:') !!}
+                            {!! Form::label('informe_medico', 'Informe Médico:') !!}
                             {!! Form::textarea('informe_medico', null, ['class' => 'form-control','rows' => 3]) !!}
                         </div>
                     @endcan
 
                     <!-- Clasificacion Triaje Field -->
                     <div class="form-group col-sm-6">
-                        {!! Form::label('clasificacion_triaje','Clasificacion Triage:') !!}
+                        {!! Form::label('clasificacion_triaje','Clasificación Triage:') !!}
                         {!!
                             Form::select(
                                 'clasificacion_triaje',
@@ -240,7 +240,7 @@
 
                     <!-- Via Aerea Field -->
                     <div class="form-group col-sm-6">
-                        {!! Form::label('via_aerea', 'Via Aerea:') !!}
+                        {!! Form::label('via_aerea', 'Via Aérea:') !!}
                         {!!
                             Form::select(
                                 'via_aerea',
@@ -277,13 +277,13 @@
 
                     <!-- Acceso Vascular Numero Field -->
                     <div class="form-group col-sm-6">
-                        {!! Form::label('acceso_vascular_numero', 'Acceso Vascular Numero:') !!}
+                        {!! Form::label('acceso_vascular_numero', 'Acceso Vascular Número:') !!}
                         {!! Form::text('acceso_vascular_numero', null, ['class' => 'form-control','maxlength' => 45,'maxlength' => 45]) !!}
                     </div>
 
                     <!-- Acceso Vascular Ubicacion Field -->
                     <div class="form-group col-sm-6">
-                        {!! Form::label('acceso_vascular_ubicacion', 'Acceso Vascular Ubicacion:') !!}
+                        {!! Form::label('acceso_vascular_ubicacion', 'Acceso Vascular Ubicación:') !!}
                         {!! Form::text('acceso_vascular_ubicacion', null, ['class' => 'form-control','maxlength' => 45,'maxlength' => 45]) !!}
                     </div>
 
@@ -295,13 +295,13 @@
 
                     <!-- Sondeo Gastrico Numero Field -->
                     <div class="form-group col-sm-6">
-                        {!! Form::label('sondeo_gastrico_numero', 'Sondeo Gastrico Numero:') !!}
+                        {!! Form::label('sondeo_gastrico_numero', 'Sondeo Gástrico Número:') !!}
                         {!! Form::text('sondeo_gastrico_numero', null, ['class' => 'form-control','maxlength' => 45,'maxlength' => 45]) !!}
                     </div>
 
                     <!-- Sondeo Gastrico Debito Field -->
                     <div class="form-group col-sm-6">
-                        {!! Form::label('sondeo_gastrico_debito', 'Sondeo Gastrico Debito:') !!}
+                        {!! Form::label('sondeo_gastrico_debito', 'Sondeo Gástrico Débito:') !!}
                         {!! Form::text('sondeo_gastrico_debito', null, ['class' => 'form-control','maxlength' => 45,'maxlength' => 45]) !!}
                     </div>
 
@@ -324,7 +324,7 @@
 
                     <!-- Desfibrilacion Field -->
                     <div class="form-group col-sm-6">
-                        {!! Form::label('desfibrilacion', 'Desfibrilacion:') !!}
+                        {!! Form::label('desfibrilacion', 'Desfibrilación:') !!}
                         {!! Form::text('desfibrilacion', null, ['class' => 'form-control','rows' => 4]) !!}
 {{--                        {!!--}}
 {{--                          Form::select(--}}
@@ -346,7 +346,7 @@
 
                     <!-- Cardioversion Farm Field -->
                     <div class="form-group col-sm-6">
-                        {!! Form::label('cardioversion_farm', 'Cardioversion Farm:') !!}
+                        {!! Form::label('cardioversion_farm', 'Cardioversión Farm:') !!}
                         {!! Form::text('cardioversion_farm', null, ['class' => 'form-control']) !!}
 {{--                        {!!--}}
 {{--                            Form::select(--}}
@@ -389,7 +389,7 @@
 
                     <!-- Inmovilizacion Field -->
                     <div class="form-group col-sm-6">
-                        {!! Form::label('inmovilizacion', 'Inmovilizacion:') !!}
+                        {!! Form::label('inmovilizacion', 'Inmovilización:') !!}
                         {!! Form::text('inmovilizacion', null, ['class' => 'form-control']) !!}
 {{--                        {!!--}}
 {{--                           Form::select(--}}
@@ -410,7 +410,7 @@
 
                     <!-- Extricacion Field -->
                     <div class="form-group col-sm-6">
-                        {!! Form::label('extricacion', 'Extricacion:') !!}
+                        {!! Form::label('extricacion', 'Extricación:') !!}
                         {!!
                            Form::select(
                                'extricacion',

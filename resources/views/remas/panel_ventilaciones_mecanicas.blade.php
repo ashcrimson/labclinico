@@ -15,7 +15,7 @@
 
         <!-- Ventilacion Mecanica Hora Recepcion Field -->
         <div class="form-group col-sm-6">
-            {!! Form::label('ventilacion_hora_recepcion', 'Ventilacion Mecanica Hora Recepcion:') !!}
+            {!! Form::label('ventilacion_hora_recepcion', 'Ventilacion Mecánica Hora Recepción:') !!}
             {!! Form::time('ventilacion_hora_recepcion', getHoraDateTime($rema->ventilacion_hora_recepcion), ['class' => 'form-control','id'=>'ventilacion_hora_recepcion']) !!}
         </div>
 
