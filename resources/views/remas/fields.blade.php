@@ -382,10 +382,10 @@
                     </div>
 
                     <!-- Frecuencia Cardiaca Field -->
-                    <div class="form-group col-sm-6">
+                  <!--   <div class="form-group col-sm-6">
                         {!! Form::label('frecuencia_cardiaca', 'Frecuencia Cardiaca:') !!}
                         {!! Form::text('frecuencia_cardiaca', null, ['class' => 'form-control','maxlength' => 45,'maxlength' => 45]) !!}
-                    </div>
+                    </div> -->
 
                     <!-- Inmovilizacion Field -->
                     <div class="form-group col-sm-6">

@@ -1,12 +1,12 @@
 <!-- Username Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('username', 'Username:') !!}
+    {!! Form::label('username', 'Nombre de usuario:') !!}
     {!! Form::text('username', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Name Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('name', 'Name:') !!}
+    {!! Form::label('name', 'Nombre:') !!}
     {!! Form::text('name', null, ['class' => 'form-control']) !!}
 </div>
 

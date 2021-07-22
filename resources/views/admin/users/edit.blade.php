@@ -9,7 +9,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col">
-                    <h1>{{__('Edit User')}}</h1>
+                    <h1>Editar Usuario</h1>
                 </div>
                 <div class="col">
                     <a class="btn btn-outline-info float-right"

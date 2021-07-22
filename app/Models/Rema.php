@@ -204,9 +204,9 @@ class Rema extends Model
         'cond_alta_dot' => 'nullable',
 
 
-        'hora_de_llamada' => 'required',
-        'hora_de_salida' => 'required',
-        'hora_de_llegada' => 'required',
+        'hora_de_llamada' => 'nullable',
+        'hora_de_salida' => 'nullable',
+        'hora_de_llegada' => 'nullable',
 
         'motivo_consulta' => 'nullable|string',
         'clasificacion_triaje' => 'nullable|string|max:255',
