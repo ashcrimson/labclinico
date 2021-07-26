@@ -1,5 +1,6 @@
 <!-- Name Field -->
 <div class="form-group col-sm-6">
+
     {!! Form::label('name', 'Name:') !!}
     {!! Form::text('name', null, ['class' => 'form-control','id' => 'role_name']) !!}
 </div>
@@ -12,6 +13,8 @@
 
 <div class="form-group col-sm-12">
     {!! Form::label('name', 'Permisos:') !!} <a class="success" data-toggle="modal" href="#modal-form-permissions" tabindex="1000">nuevo</a>
+
+
 
     {!!
         Form::select(
