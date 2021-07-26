@@ -37,6 +37,7 @@
 <div class="form-group col-sm-12">
     {!! Form::label('name', 'Roles:') !!}
     <a class="success" data-toggle="modal" href="#modal-form-roles" tabindex="1000">nuevo</a>
+    <p>Mueva un rol hacia la derecha para asignarlo y hacia la izquierda para quitarlo</p>
     {!!
         Form::select(
             'roles[]',
