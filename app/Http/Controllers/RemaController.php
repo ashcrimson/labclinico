@@ -157,6 +157,12 @@ class RemaController extends AppBaseController
             return redirect(route('remas.index'));
         }
 
+        if (!$rema->puedeEditar()){
+            Flash::error('No puede editar este ingreso!');
+
+            return redirect(route('remas.index'));
+        }
+
         return view('remas.edit')->with('rema', $rema);
     }
 
@@ -219,6 +225,7 @@ class RemaController extends AppBaseController
             'hora_de_salida' => timeToDateTime($request->hora_de_salida),
             'hora_de_llegada' => timeToDateTime($request->hora_de_llegada),
             'estado_id' => RemaEstado::CREADA,
+            'cerrada' => $request->cerrar ?? 0
         ]);
 
 

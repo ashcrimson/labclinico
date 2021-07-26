@@ -2,10 +2,10 @@
     <i class="fa fa-eye"></i>
 </a>
 
-@if(auth()->user()->id == $rema->user_id || Auth::user()->role('Medico'))
-<a href="{{ route('remas.edit', $id) }}" data-toggle="tooltip" title="Editar" class='btn btn-outline-info btn-sm'>
-    <i class="fa fa-edit"></i>
-</a>
+@if($rema->puedeEditar())
+    <a href="{{ route('remas.edit', $id) }}" data-toggle="tooltip" title="Editar" class='btn btn-outline-info btn-sm'>
+        <i class="fa fa-edit"></i>
+    </a>
 @endif
 @can('Eliminaringreso')
 <a href="#" onclick="deleteItemDt(this)" data-id="{{$id}}" data-toggle="tooltip" title="Eliminar" class='btn btn-outline-danger btn-sm'>

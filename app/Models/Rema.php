@@ -58,6 +58,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $rcr
  * @property string $sondeo_vesical
  * @property string $otros
+ * @property boolean $cerrada
  * @property string|\Carbon\Carbon $ventilacion_hora_recepcion
  * @property string|\Carbon\Carbon $fallecimiento_hora
  * @property string $informe_medico
@@ -124,7 +125,8 @@ class Rema extends Model
         'otros',
         'ventilacion_hora_recepcion',
         'fallecimiento_hora',
-        'informe_medico'
+        'informe_medico',
+        'cerrada',
     ];
 
     /**
@@ -288,6 +290,17 @@ class Rema extends Model
     public function esTemporal()
     {
         return $this->estado_id==RemaEstado::TEMPORAL;
+    }
+
+    /**
+     * Se puede editar la rema de no estar cerrada
+     * que el usuario tenga el rol medico o que el usuario sea quien la creo
+     * @return bool
+     */
+    public function puedeEditar()
+    {
+
+        return (auth()->user()->id == $this->user_id || auth()->user()->role('Medico')) && !$this->cerrada;
     }
 
 }

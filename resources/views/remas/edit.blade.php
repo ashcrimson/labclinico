@@ -32,11 +32,19 @@
                 <div class="form-row">
                     @include('remas.fields')
 
-                    <div class="form-group col-sm-6">
+                    <div class="form-group col-sm-4">
                         <a href="{!! route('remas.index') !!}" class="btn btn-block btn-secondary">Cancelar</a>
                     </div>
-                    <div class="form-group col-sm-6">
-                        <button type="submit"  class="btn btn-block btn-success">Guardar</button>
+                    <div class="form-group col-sm-4">
+                        <button type="submit"  class="btn btn-block btn-success">
+                            <i class="fa fa-save"></i> Guardar
+                        </button>
+                    </div>
+
+                    <div class="form-group col-sm-4">
+                        <button type="submit"  class="btn btn-block btn-warning" name="cerrar" value="1">
+                            <i class="fa fa-save"></i> Guardar y cerrar
+                        </button>
                     </div>
 
                 </div>
