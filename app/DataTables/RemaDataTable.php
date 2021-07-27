@@ -30,11 +30,23 @@ class RemaDataTable extends DataTable
         })->editColumn('paciente.fecha_nac',function (Rema $rema){
             return Carbon::parse($rema->paciente->fecha_nac)->format('d/m/Y');
         })->editColumn('hora_de_llamada',function (Rema $rema){
+            if(!$rema->hora_de_llamada){
+                return null;
+            } else {
             return Carbon::parse($rema->hora_de_llamada)->format('g:i A');
+            }
         })->editColumn('hora_de_salida',function (Rema $rema){
+            if(!$rema->hora_de_salida){
+                return null;
+            } else {
             return Carbon::parse($rema->hora_de_salida)->format('g:i A');
+            }
         })->editColumn('hora_de_llegada',function (Rema $rema){
+            if(!$rema->hora_de_llegada){
+                return null;
+            } else {
             return Carbon::parse($rema->hora_de_llegada)->format('g:i A');
+            }
         });
 
     }

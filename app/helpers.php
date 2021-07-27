@@ -223,7 +223,7 @@ function optionsParentAuthUser(){
 
 function timeToDateTime($time){
 
-    if (!$time)
+    if ($time=='')
         return null;
 
     list($hora,$minuto) = explode(':',$time);

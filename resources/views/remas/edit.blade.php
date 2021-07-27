@@ -43,7 +43,7 @@
 
                     <div class="form-group col-sm-4">
                         <button type="submit"  class="btn btn-block btn-warning" name="cerrar" value="1">
-                            <i class="fa fa-save"></i> Guardar y cerrar
+                            <i class="fa fa-save"></i> Cierre de Atención
                         </button>
                     </div>
 
