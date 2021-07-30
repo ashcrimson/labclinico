@@ -142,7 +142,7 @@
 
                             <!-- Ekg Field -->
                             <div class="form-group col-sm-6">
-                                <label for="ekg">Ekg:</label>
+                                <label for="ekg">EKG:</label>
                                 <input class="form-control" type="text" v-model="editedItem.ekg">
                             </div>
 

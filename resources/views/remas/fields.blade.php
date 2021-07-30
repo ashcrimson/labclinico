@@ -307,7 +307,7 @@
 
                     <!-- Monitoreo Ekg Field -->
                     <div class="form-group col-sm-6">
-                        {!! Form::label('monitoreo_ekg', 'Monitoreo Ekg:') !!}
+                        {!! Form::label('monitoreo_ekg', 'Monitoreo EKG:') !!}
                         {!!
                            Form::select(
                                'monitoreo_ekg',
