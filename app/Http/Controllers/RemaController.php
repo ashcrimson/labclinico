@@ -339,12 +339,25 @@ class RemaController extends AppBaseController
 //        $rema->setAttribute("cond_alta_dot" ,$rema->paciente->cond_alta_dot);
 
 
-
+        if($rema->hora_de_llamada){
         $rema->setAttribute("hora_de_llamada" ,Carbon::parse($rema->hora_de_llamada)->format("H:i"));
+        }
+
+        if($rema->hora_de_salida){
         $rema->setAttribute("hora_de_salida" ,Carbon::parse($rema->hora_de_salida)->format("H:i"));
+        }
+
+        if($rema->hora_de_llegada){
         $rema->setAttribute("hora_de_llegada" ,Carbon::parse($rema->hora_de_llegada)->format("H:i"));
+        }
+
+        if($rema->fallecimiento_hora){
         $rema->setAttribute("fallecimiento_hora" ,Carbon::parse($rema->fallecimiento_hora)->format("H:i"));
+        }
+
+        if($rema->ventilacion_hora_recepcion){
         $rema->setAttribute("ventilacion_hora_recepcion" ,Carbon::parse($rema->ventilacion_hora_recepcion)->format("H:i"));
+        }
 
         return $rema;
     }

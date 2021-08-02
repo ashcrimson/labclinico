@@ -154,18 +154,18 @@
 
 
             <!-- Antecedentes Morbidos Field -->
-            {!! Form::label('antecedentes_morbidos', 'Antecedentes Morbidos:') !!}
-            {!! $rema->antecedentes_morbidos !!}<br>
+            <!-- {!! Form::label('antecedentes_morbidos', 'Antecedentes Morbidos:') !!}
+            {!! $rema->antecedentes_morbidos !!}<br> -->
 
 
             <!-- Alergias Field -->
-            {!! Form::label('alergias', 'Alergias:') !!}
-            {!! $rema->alergias !!}<br>
+            <!-- {!! Form::label('alergias', 'Alergias:') !!}
+            {!! $rema->alergias !!}<br> -->
 
 
             <!-- Medicamentos Habituales Field -->
-            {!! Form::label('medicamentos_habituales', 'Medicamentos Habituales:') !!}
-            {!! $rema->medicamentos_habituales !!}<br>
+           <!--  {!! Form::label('medicamentos_habituales', 'Medicamentos Habituales:') !!}
+            {!! $rema->medicamentos_habituales !!}<br> -->
 
 
             <!-- Via Aerea Field -->
