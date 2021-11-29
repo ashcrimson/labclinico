@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+Route::get('login_get','Auth\LoginController@login')->name('login_get');
+
+
 Route::group(['prefix' => 'developer'],function (){
 
     Route::get('prueba/api','PruebaApiController@index')->name('developer.prueba.api');
