@@ -59,3 +59,12 @@ Route::group(['middleware' => 'auth'],function () {
 
 });
 
+
+
+Route::resource('examenes', 'examenesController');
+
+Route::resource('examens', 'examenController');
+
+Route::resource('grupos', 'grupoController');
+
+Route::resource('tipos', 'tipoController');
