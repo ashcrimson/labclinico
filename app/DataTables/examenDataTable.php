@@ -33,7 +33,7 @@ class examenDataTable extends DataTable
      */
     public function query(examen $model)
     {
-        return $model->newQuery();
+        return $model->newQuery()->with(['grupo']);
     }
 
     /**
@@ -71,8 +71,10 @@ class examenDataTable extends DataTable
     protected function getColumns()
     {
         return [
+            'id',
             'codigo',
-            'nombre'
+            'nombre',
+            'grupo_nombre' => new \Yajra\DataTables\Html\Column(['title' => 'Grupo', 'data' => 'grupo.nombre', 'nombre' => 'grupo.nombre'])
         ];
     }
 

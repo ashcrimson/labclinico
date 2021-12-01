@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddField2ToRemasTable extends Migration
+class AddForeignKeysToExamensTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddField2ToRemasTable extends Migration
      */
     public function up()
     {
-        Schema::table('remas', function (Blueprint $table) {
-            $table->boolean('cerrada')->default(0);
+        Schema::table('examens', function (Blueprint $table) {
+            $table->foreign('grupo_id', 'fk_examens_grupos1')->references('id')->on('grupos');
         });
     }
 
@@ -25,8 +25,8 @@ class AddField2ToRemasTable extends Migration
      */
     public function down()
     {
-        Schema::table('remas', function (Blueprint $table) {
-            //
+        Schema::table('examens', function (Blueprint $table) {
+            $table->dropForeign('fk_examens_grupos1');
         });
     }
 }

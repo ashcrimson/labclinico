@@ -16,7 +16,8 @@ class CreateExamensTable extends Migration
         Schema::create('examens', function (Blueprint $table) {
             $table->increments('id');
             $table->string('codigo');
-            $table->string('nombre');
+            $table->string('nombre'); 
+            $table->unsignedBigInteger('grupo_id')->nullable()->index('fk_examens_grupos1');
             $table->timestamps();
             $table->softDeletes();
         });

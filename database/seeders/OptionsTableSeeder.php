@@ -130,8 +130,8 @@ class OptionsTableSeeder extends Seeder
             array (
                 'id' => 8,
                 'option_id' => NULL,
-                'nombre' => 'Remas',
-                'ruta' => 'remas.index',
+                'nombre' => 'Examenes',
+                'ruta' => 'examens.index',
                 'descripcion' => 'x',
                 'icono_l' => 'fa-ambulance',
                 'icono_r' => NULL,
