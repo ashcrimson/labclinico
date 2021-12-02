@@ -5,17 +5,16 @@ namespace App\Models;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 /**
- * Class tipo
+ * Class solicitud
  * @package App\Models
- * @version November 30, 2021, 12:34 pm -03
+ * @version December 2, 2021, 10:16 am -03
  *
- * @property string $nombre
  */
-class tipo extends Model
+class solicitud extends Model
 {
     use SoftDeletes;
 
-    public $table = 'tipos';
+    public $table = 'solicituds';
     
 
     protected $dates = ['deleted_at'];
@@ -23,7 +22,10 @@ class tipo extends Model
 
 
     public $fillable = [
-        'nombre'
+        'diagnostico_id',
+        'notas',
+        'programacion'
+        
     ];
 
     /**
@@ -32,8 +34,7 @@ class tipo extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'nombre' => 'string'
+        'id' => 'integer'
     ];
 
     /**
@@ -45,12 +46,12 @@ class tipo extends Model
         
     ];
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      **/
-    public function examen()
+    public function diagnostico()
     {
-        return $this->hasMany(\App\Models\examen::class, 'examen_id');
+        return $this->hasOne(\App\Models\diagnostico::class, 'diagnostico_id');
     }
 
     

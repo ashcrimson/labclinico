@@ -15,6 +15,7 @@ class AddForeignKeysToExamensTable extends Migration
     {
         Schema::table('examens', function (Blueprint $table) {
             $table->foreign('grupo_id', 'fk_examens_grupos1')->references('id')->on('grupos');
+            $table->foreign('tipo_id', 'fk_examens_tipos1')->references('id')->on('tipos');
         });
     }
 
@@ -27,6 +28,7 @@ class AddForeignKeysToExamensTable extends Migration
     {
         Schema::table('examens', function (Blueprint $table) {
             $table->dropForeign('fk_examens_grupos1');
+            $table->dropForeign('fk_examens_tipos1');
         });
     }
 }

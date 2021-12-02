@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $codigo
  * @property string $nombre
  * @property integer $grupo_id
+ * @property integer $tipo_id
  */
 class examen extends Model
 {
@@ -27,7 +28,8 @@ class examen extends Model
     public $fillable = [
         'codigo',
         'nombre',
-        'grupo_id'
+        'grupo_id',
+        'tipo_id'
     ];
 
     /**
@@ -39,7 +41,8 @@ class examen extends Model
         'id' => 'integer',
         'codigo' => 'string',
         'nombre' => 'string',
-        'grupo_id' => 'integer'
+        'grupo_id' => 'integer',
+        'tipo_id' => 'integer'
     ];
 
     /**
@@ -57,6 +60,14 @@ class examen extends Model
     public function grupo()
     {
         return $this->belongsTo(\App\Models\grupo::class, 'grupo_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function tipo()
+    {
+        return $this->belongsTo(\App\Models\tipo::class, 'tipo_id');
     }
 
 

@@ -5,17 +5,18 @@ namespace App\Models;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 /**
- * Class tipo
+ * Class diagnostico
  * @package App\Models
- * @version November 30, 2021, 12:34 pm -03
+ * @version December 2, 2021, 4:37 pm -03
  *
+ * @property string $codigo
  * @property string $nombre
  */
-class tipo extends Model
+class diagnostico extends Model
 {
     use SoftDeletes;
 
-    public $table = 'tipos';
+    public $table = 'diagnosticos';
     
 
     protected $dates = ['deleted_at'];
@@ -23,6 +24,7 @@ class tipo extends Model
 
 
     public $fillable = [
+        'codigo',
         'nombre'
     ];
 
@@ -33,6 +35,7 @@ class tipo extends Model
      */
     protected $casts = [
         'id' => 'integer',
+        'codigo' => 'string',
         'nombre' => 'string'
     ];
 
@@ -45,12 +48,12 @@ class tipo extends Model
         
     ];
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function examen()
+    public function solicitud()
     {
-        return $this->hasMany(\App\Models\examen::class, 'examen_id');
+        return $this->belongsTo(\App\Models\solicitud::class, 'solicitud_id');
     }
 
     

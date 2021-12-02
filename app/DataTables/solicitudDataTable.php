@@ -2,11 +2,11 @@
 
 namespace App\DataTables;
 
-use App\Models\examen;
+use App\Models\solicitud;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
-class examenDataTable extends DataTable
+class solicitudDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -18,9 +18,9 @@ class examenDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', function($Examen){
-            $id = $Examen->id;
-            return view('examens.datatables_actions',compact('Examen','id'));
+        return $dataTable->addColumn('action', function($Solicitud){
+            $id = $Solicitud->id;
+            return view('solicituds.datatables_actions',compact('Solicitud','id'));
         });
 
     }
@@ -28,12 +28,12 @@ class examenDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\examen $model
+     * @param \App\Models\solicitud $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(examen $model)
+    public function query(solicitud $model)
     {
-        return $model->newQuery()->with(['grupo','tipo']);  
+        return $model->newQuery();
     }
 
     /**
@@ -71,11 +71,7 @@ class examenDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'id',
-            'codigo',
-            'nombre',
-            'grupo_nombre' => new \Yajra\DataTables\Html\Column(['title' => 'Grupo', 'data' => 'grupo.nombre', 'nombre' => 'grupo.nombre']),
-            'tipo_nombre' => new \Yajra\DataTables\Html\Column(['title' => 'Tipo', 'data' => 'tipo.nombre', 'nombre' => 'tipo.nombre'])
+            
         ];
     }
 
@@ -86,6 +82,6 @@ class examenDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'examensdatatable_' . time();
+        return 'solicitudsdatatable_' . time();
     }
 }

@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateExamensTable extends Migration
+class CreateDiagnosticosTable extends Migration
 {
 
     /**
@@ -13,12 +13,10 @@ class CreateExamensTable extends Migration
      */
     public function up()
     {
-        Schema::create('examens', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('diagnosticos', function (Blueprint $table) {
+            $table->increments('id'); 
             $table->string('codigo');
-            $table->string('nombre'); 
-            $table->unsignedBigInteger('grupo_id')->nullable()->index('fk_examens_grupos1');
-            $table->unsignedBigInteger('tipo_id')->nullable()->index('fk_examens_tipos1');
+            $table->string('nombre');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -31,6 +29,6 @@ class CreateExamensTable extends Migration
      */
     public function down()
     {
-        Schema::drop('examens');
+        Schema::drop('diagnosticos');
     }
 }

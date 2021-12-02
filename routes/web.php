@@ -68,3 +68,7 @@ Route::resource('examens', 'examenController');
 Route::resource('grupos', 'grupoController');
 
 Route::resource('tipos', 'tipoController');
+
+Route::resource('solicituds', 'solicitudController');
+
+Route::resource('diagnosticos', 'diagnosticoController');
